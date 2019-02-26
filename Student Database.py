@@ -11,11 +11,10 @@ try:
     print(the_list)
     for x in range(len(the_list)):
         for y in the_list[x]:
-            listname = y
-            if listname not in the_list:
-                student_dictionary[listname] = the_list[x]  # overwrites values that already exist need to check and if exist then append
-            if listname in the_list:
-                student_dictionary.update({the_list: x})  # or .fromkeys
+            if y not in student_dictionary:
+                student_dictionary[y] = the_list[x]  # overwrites values that already exist need to check and if exist then append
+            elif y in student_dictionary:
+                student_dictionary[y] = student_dictionary[y], the_list[x]
     print(student_dictionary)
 except IOError:
     print("error 404 / files not found")  # defencive coding
