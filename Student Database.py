@@ -11,7 +11,7 @@ try:
     for x in range(len(the_list)):
         for y in the_list[x]:
             if y not in student_dictionary:
-                student_dictionary[y] = the_list[x]  # overwrites values that already exist need to check and if exist then append
+                student_dictionary[y] = the_list[x]
             elif y in student_dictionary:
                 student_dictionary[y] = student_dictionary[y], the_list[x]
 except IOError:
@@ -22,7 +22,6 @@ while repeat == True:
         if input != "":
             temp_list.append(input)
     temp_list = []
-
     print("if you dont want to enter a value press enter")
     fname_input = input("enter fname value")
     delete_fun(fname_input)
@@ -35,23 +34,40 @@ while repeat == True:
     adviser_input = input("enter adviser value")
     delete_fun(adviser_input)
     print("searching for", temp_list)
-    holder_list = []
-    for x in temp_list:
-        if student_dictionary[x]:
-            if x not in holder_list:
-                holder_list.append(student_dictionary[x])
+    search_list = []
 
-    print("your results are ")
-    for x in range(len(holder_list)):
-        for y in holder_list[x]:
-            counter = 0
-            for item in temp_list:
-                if item in y:
-                    counter = counter + 1
-            if counter == len(temp_list):
-                print(y)
+    try:
+        for x in temp_list:
+            if student_dictionary[x]:
+                if x not in search_list:
+                    search_list.append(student_dictionary[x])
+        print("your results are ")
 
+        if len(search_list) == 1:
+            print("part 1")
+            print(search_list)
+
+        if len(search_list) > 1:
+            print("part 2")
+            result_list = []
+            for x in range(len(search_list)):
+                for y in search_list[x]:
+                    counter = 0
+                    for item in temp_list:
+                        if item in y:
+                            counter = counter + 1
+                    if counter == len(temp_list):
+                        if y not in result_list:
+                            result_list.append(y)
+                            print(y)
+
+    except KeyError:
+        print("input error")
 
     repeat_input = input("do you want to search? [y/n]")
+    if repeat_input != 'n' and repeat_input != 'y':
+        while repeat_input != 'n' and repeat_input != 'y':
+            print("error")
+            repeat_input = input("do you want to search? [y/n]")
     if repeat_input == 'n':
         repeat = False

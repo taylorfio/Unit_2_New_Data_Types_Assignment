@@ -24,27 +24,3 @@ def extremeTuple (args):
 
 tup = (0, 22, 15)
 print(extremeTuple(tup))
-
-
-
-
-
-
-
-
-
-""" 
-def extremeTuple1 (args):
-    final_list = []
-    temp_list = []
-    for x in range(len(args)):
-        temp_list.append(x)
-    for x in range(len(temp_list)):
-        final_list.insert(0, max(args))
-        temp_list.remove(max(temp_list))
-    return final_list
-
-
-tup1 = (0, 22, 15)
-print(extremeTuple1(tup1))
-"""
