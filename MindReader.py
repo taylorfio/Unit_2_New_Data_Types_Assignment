@@ -40,6 +40,27 @@ while user_points < 30 and bot_points < 30:
                 for x in temp_tup:
                     print(x)
 
+        for i in range(len(history) - 3, len(history)):  # For the last 3 indexes in 'history'
+            last3.append(history[i])  # Adds the value associated to the current index in 'history' to 'last3'
+
+        for i in range(0, len(history) - 3):
+            if last3[0] == history[i] \
+                    and last3[1] == history[i + 1] \
+                    and last3[2] == history[i + 2]:
+                guessList.append(history[i + 3])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     your_input = input("1 or 2")
     if your_input != "1" or your_input != "2":
@@ -47,55 +68,9 @@ while user_points < 30 and bot_points < 30:
             print("error")
             your_input = int(input('1 or 2: '))
         if your_input == "1":
-            ""
+            history_list.append('1')
         if your_input == "2":
-            ""
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            history_list.append('2')
 
 
 
@@ -125,4 +100,28 @@ if c_score > u_score:
     print('Computer Wins')
 elif u_score > c_score:
     print('You Win')
+
+
+
+    if len(history) > 3: #If there is enough values in 'history' for the computer to intelligently guess the next one.
+        last3 = [] #Containing 3 most recent #s to base a guess off of
+        guessList = [] #To keep track of guesses based on 'last3'
+
+        for i in range(len(history)-3, len(history)): #For the last 3 indexes in 'history'
+            last3.append(history[i]) #Adds the value associated to the current index in 'history' to 'last3'
+
+        for i in range (0, len(history)-3):
+            if last3[0] == history[i]\
+                and last3[1] == history[i+1]\
+                    and last3[2] == history[i+2]:
+                        guessList.append(history[i+3])
+
+        if guessList.count(1) > guessList.count(2):
+            guess = 1
+            notguess = 2
+
+
+
 """
+
+

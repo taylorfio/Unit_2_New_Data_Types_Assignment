@@ -42,13 +42,11 @@ while repeat == True:
                 if x not in search_list:
                     search_list.append(student_dictionary[x])
         print("your results are ")
-
         if len(search_list) == 1:
             print("part 1")
-            print(search_list)
+            print(search_list)  # make normal and separate lines
 
         if len(search_list) > 1:
-            print("part 2")
             result_list = []
             for x in range(len(search_list)):
                 for y in search_list[x]:
@@ -59,8 +57,7 @@ while repeat == True:
                     if counter == len(temp_list):
                         if y not in result_list:
                             result_list.append(y)
-                            print(y)
-
+                            print(', '.join(y))
     except KeyError:
         print("input error")
 
