@@ -1,10 +1,5 @@
 """
-It will guess 2 if there is not enough information or if there is a tie
-next questions are "mind read"
-have history of guesses in list
-.insert(0) each new entery at front of list
 
-use tuples to store options for history
 """
 tup_list = []
 tup1 = (1, 1, 1)
@@ -23,12 +18,13 @@ tup_list.append(tup5)
 tup_list.append(tup6)
 tup_list.append(tup7)
 tup_list.append(tup8)
-print(tup_list)
 
 temp_tup = []
 history_list = []
+bot_choice = 0
 user_points = 0
 bot_points = 0
+
 while user_points < 30 and bot_points < 30:
     if len(history_list) < 3:
         bot_choice = 2
@@ -36,92 +32,41 @@ while user_points < 30 and bot_points < 30:
         for x in tup_list:
             if history_list == tup_list[x]:
                 tup_list[x] = temp_tup
+
                 print(temp_tup)
-                for x in temp_tup:
-                    print(x)
 
-        for i in range(len(history) - 3, len(history)):  # For the last 3 indexes in 'history'
-            last3.append(history[i])  # Adds the value associated to the current index in 'history' to 'last3'
+                list1 = []
+                list2 = []
+                for num in temp_tup:
+                    if num == 1:
+                        list1.append(0)
+                    if num == 2:
+                        list2.append(0)
+                if len(list1) > len(list2):
+                    bot_choice = 1
+                if len(list2) > len(list1):
+                    bot_choice = 2
 
-        for i in range(0, len(history) - 3):
-            if last3[0] == history[i] \
-                    and last3[1] == history[i + 1] \
-                    and last3[2] == history[i + 2]:
-                guessList.append(history[i + 3])
+    your_input = input("1 or 2: ")
+    while your_input != "1" and your_input != "2":
+        print("error")
+        your_input = input("1 or 2: ")
 
+    your_input = int(your_input)
+    history_list.insert(0, your_input)
+    if len(history_list) == 4:
+        history_list.pop(3)
+    if your_input == bot_choice:
+        print("incorrect")
+        bot_points = bot_points + 1
+    if your_input != bot_choice:
+        print("correct")
+        user_points = user_points + 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-    your_input = input("1 or 2")
-    if your_input != "1" or your_input != "2":
-        while your_input != "1" or your_input != "2":
-            print("error")
-            your_input = int(input('1 or 2: '))
-        if your_input == "1":
-            history_list.append('1')
-        if your_input == "2":
-            history_list.append('2')
-
-
-
-
-
-"""
-c_score = 0
-u_score = 0
-guessed = []
-while (c_score != (30 or 31)) or (u_score != (30 or 31)):
-    c_choose = 2
-    u_number = int(input('1 or 2: '))
-    guessed.append(u_number)
-    if len(guessed) > 3:
-        last = [guessed[len(guessed) - 1], guessed[len(guessed) - 2], guessed[len(guessed) - 3]]
-        if sum(last) == (3 or 4):
-            c_choose = 2
-        else:
-            c_choose = 1
-    if c_choose == u_number:
-        c_score += 1
-        print('correct')
-    if c_choose != u_number:
-        u_score += 1
-        print('In-correct')
-if c_score > u_score:
+if bot_points > user_points:
     print('Computer Wins')
-elif u_score > c_score:
+elif user_points > bot_points:
     print('You Win')
 
-
-
-    if len(history) > 3: #If there is enough values in 'history' for the computer to intelligently guess the next one.
-        last3 = [] #Containing 3 most recent #s to base a guess off of
-        guessList = [] #To keep track of guesses based on 'last3'
-
-        for i in range(len(history)-3, len(history)): #For the last 3 indexes in 'history'
-            last3.append(history[i]) #Adds the value associated to the current index in 'history' to 'last3'
-
-        for i in range (0, len(history)-3):
-            if last3[0] == history[i]\
-                and last3[1] == history[i+1]\
-                    and last3[2] == history[i+2]:
-                        guessList.append(history[i+3])
-
-        if guessList.count(1) > guessList.count(2):
-            guess = 1
-            notguess = 2
-
-
-
-"""
 
 

@@ -1,3 +1,6 @@
+"""
+
+"""
 flights = {'Montreal': ['Toronto', 'Tampa Bay'],
            'Toronto': ['Montreal', 'Tampa Bay'],
            'Tampa Bay': ['Atlanta', 'Toronto'],

@@ -1,3 +1,6 @@
+"""
+
+"""
 def extremeTuple (args):
     try:
         tup1 = args[0]
