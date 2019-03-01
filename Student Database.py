@@ -46,7 +46,6 @@ while repeat == True:
                     search_list.append(student_dictionary[x])
         print("your results are ")
         if len(search_list) == 1:
-            print("part 1")
             print(search_list)  # make normal and separate lines
 
         if len(search_list) > 1:
