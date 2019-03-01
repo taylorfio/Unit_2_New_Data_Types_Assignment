@@ -1,5 +1,5 @@
 """
-the file with all the information read and added to a dictionary. Then the users input is used to search for
+the file with all the information is read and added to a dictionary. Then the users input is used to search for
 the information that match's it. Then your searched information creates a list of the info to print
 """
 the_list = []  # stating variables
@@ -48,7 +48,12 @@ while repeat == True:  # loop that repeats until you tell to to stop
         print("your results are ")
 
         if len(search_list) == 1:  # if only one item is being searched then it just prints out the corresponding keys
-            print(search_list)  # make normal and separate lines
+            for x in search_list:  # for loop for the amount of lists in search list
+                if len(x) > 2:  # if the amount of lists is less then 2 it just prints that list
+                    print(', '.join(x))
+                else:
+                    for item in x:  # for all the other lengths list can have it prints each list individually
+                        print(', '.join(item))
 
         if len(search_list) > 1:  # if more then one item is being searched
             result_list = []
