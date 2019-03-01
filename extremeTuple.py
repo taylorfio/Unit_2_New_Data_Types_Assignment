@@ -18,3 +18,4 @@ def extremeTuple(args):  # function that sorts tuple
 
 tup = (24, 7, 0, 5)  # example tuple
 print(extremeTuple(tup))  # prints the returned max and min values for the tuple from the function
+
