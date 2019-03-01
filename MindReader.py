@@ -1,24 +1,16 @@
 """
-"""
-tup_list = []
-tup1 = (1, 1, 1)
-tup2 = (1, 2, 1)
-tup3 = (2, 1, 1)
-tup4 = (1, 1, 2)
-tup5 = (2, 2, 2)
-tup6 = (2, 1, 2)
-tup7 = (1, 2, 2)
-tup8 = (2, 2, 1)
-tup_list.append(tup1)
-tup_list.append(tup2)
-tup_list.append(tup3)
-tup_list.append(tup4)
-tup_list.append(tup5)
-tup_list.append(tup6)
-tup_list.append(tup7)
-tup_list.append(tup8)
 
-temp_tup = []
+"""
+tup_dict = {
+    '1': (1, 1, 1),
+    '2': (1, 2, 1),
+    '3': (2, 1, 1),
+    '4': (1, 1, 2),
+    '5': (2, 2, 2),
+    '6': (2, 1, 2),
+    '7': (1, 2, 2),
+    '8': (2, 2, 1)}
+
 history_list = []
 bot_choice = 0
 user_points = 0
@@ -28,15 +20,11 @@ while user_points < 30 and bot_points < 30:
     if len(history_list) < 3:
         bot_choice = 2
     else:
-        for x in tup_list:
-            if history_list == tup_list[x]:  # how to get this to work
-                tup_list[x] = temp_tup
-
-                print(temp_tup)  # del later
-
+        for x in tup_dict:
+            if tuple(history_list) == tup_dict[x]:
                 list1 = []
                 list2 = []
-                for num in temp_tup:
+                for num in tup_dict[x]:
                     if num == 1:
                         list1.append(0)
                     if num == 2:
@@ -61,8 +49,31 @@ while user_points < 30 and bot_points < 30:
     if your_input != bot_choice:
         print("correct")
         user_points = user_points + 1
+    #print(history_list) #use to check history
 
 if bot_points > user_points:
     print('Computer Wins')
-elif user_points > bot_points:
+    print("")
+    print("  , ; ,   .-'---'-.   , ; ,")
+    print("  \\|/  .'         '.  \|//")
+    print("   \-;-/   ()   ()   \-;-/")
+    print("   // ;               ; \ \ ")
+    print("  //__; :.         .; ;__\ \ ")
+    print(" `-----\'.'-.....-'.'/-----' ")
+    print("        '.'.-.-,_.'.' ")
+    print("          '(  (..-' ")
+    print("            '-' ")
+
+if user_points > bot_points:
     print('You Win')
+    print("")
+    print("         ___________")
+    print("       '._==_==_=_.'")
+    print("       .-\:      /-.")
+    print("      | (|:.     |) |")
+    print("       '-|:.     |-'")
+    print("         \::.    /")
+    print("          '::. .'")
+    print("            ) (")
+    print("          _.' '._")
+    print("         `--------` ")
